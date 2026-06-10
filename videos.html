@@ -39,10 +39,28 @@
                     Projetos de edição de vídeos para Shorts, Reels, Tiktok e YouTube.
                 </p>
             </div>
+<div class="flex flex-col gap-5 mb-10">
+    <div>
+        <p class="text-sm text-gray-500 mb-3">Formato</p>
+        <div class="flex flex-wrap gap-3">
+            <button class="filter-btn active" data-filter-type="formato" data-filter-value="todos">Todos</button>
+            <button class="filter-btn" data-filter-type="formato" data-filter-value="curto">Curtos</button>
+            <button class="filter-btn" data-filter-type="formato" data-filter-value="longo">Longos</button>
+        </div>
+    </div>
 
+    <div>
+        <p class="text-sm text-gray-500 mb-3">Categoria</p>
+        <div class="flex flex-wrap gap-3">
+            <button class="filter-btn active" data-filter-type="categoria" data-filter-value="todos">Todos</button>
+            <button class="filter-btn" data-filter-type="categoria" data-filter-value="vlog">Vlogs</button>
+            <button class="filter-btn" data-filter-type="categoria" data-filter-value="games">Games</button>
+        </div>
+    </div>
+</div>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
     
-    <article class="bg-card border border-line rounded-xl overflow-hidden">
+    <article class="video-item bg-card border border-line rounded-xl overflow-hidden" data-formato="curto" data-categoria="games">
         <div class="aspect-video">
             <iframe 
                 class="w-full h-full"
@@ -59,7 +77,7 @@
         </div>
     </article>
 
-    <article class="bg-card border border-line rounded-xl overflow-hidden">
+<article class="video-item bg-card border border-line rounded-xl overflow-hidden" data-formato="curto" data-categoria="games">
         <div class="aspect-video">
             <iframe 
                 class="w-full h-full"
@@ -76,7 +94,7 @@
         </div>
     </article>
 
-    <article class="bg-card border border-line rounded-xl overflow-hidden">
+    <article class="video-item bg-card border border-line rounded-xl overflow-hidden" data-formato="curto" data-categoria="games">
         <div class="aspect-video">
             <iframe 
                 class="w-full h-full"
@@ -93,7 +111,7 @@
         </div>
     </article>
 
-    <article class="bg-card border border-line rounded-xl overflow-hidden">
+<article class="video-item bg-card border border-line rounded-xl overflow-hidden" data-formato="curto" data-categoria="games">
         <div class="aspect-video">
             <iframe 
                 class="w-full h-full"
@@ -110,7 +128,7 @@
         </div>
     </article>
 
-    <article class="bg-card border border-line rounded-xl overflow-hidden">
+<article class="video-item bg-card border border-line rounded-xl overflow-hidden" data-formato="curto" data-categoria="games">
         <div class="aspect-video">
             <iframe 
                 class="w-full h-full"
@@ -127,7 +145,7 @@
         </div>
     </article>
 
-    <article class="bg-card border border-line rounded-xl overflow-hidden">
+<article class="video-item bg-card border border-line rounded-xl overflow-hidden" data-formato="curto" data-categoria="games">
         <div class="aspect-video">
             <iframe 
                 class="w-full h-full"
@@ -144,7 +162,7 @@
         </div>
     </article>
 
-    <article class="bg-card border border-line rounded-xl overflow-hidden">
+<article class="video-item bg-card border border-line rounded-xl overflow-hidden" data-formato="curto" data-categoria="games">
         <div class="aspect-video">
             <iframe 
                 class="w-full h-full"
@@ -161,7 +179,7 @@
         </div>
     </article>
 
-    <article class="bg-card border border-line rounded-xl overflow-hidden">
+<article class="video-item bg-card border border-line rounded-xl overflow-hidden" data-formato="curto" data-categoria="games">
         <div class="aspect-video">
             <iframe 
                 class="w-full h-full"
@@ -178,7 +196,7 @@
         </div>
     </article>
 
-    <article class="bg-card border border-line rounded-xl overflow-hidden">
+<article class="video-item bg-card border border-line rounded-xl overflow-hidden" data-formato="curto" data-categoria="games">
         <div class="aspect-video">
             <iframe 
                 class="w-full h-full"
@@ -195,7 +213,7 @@
         </div>
     </article>
 
-                  <article class="bg-card border border-line rounded-xl overflow-hidden">
+<article class="video-item bg-card border border-line rounded-xl overflow-hidden" data-formato="curto" data-categoria="games">
         <div class="aspect-video">
             <iframe 
                 class="w-full h-full"
@@ -213,3 +231,46 @@
     </article>
 
 </div>
+</section>
+</main>
+
+<script>
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const videoItems = document.querySelectorAll(".video-item");
+
+    const activeFilters = {
+        formato: "todos",
+        categoria: "todos"
+    };
+
+    filterButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const type = button.dataset.filterType;
+            const value = button.dataset.filterValue;
+
+            activeFilters[type] = value;
+
+            document
+                .querySelectorAll(`[data-filter-type="${type}"]`)
+                .forEach(btn => btn.classList.remove("active"));
+
+            button.classList.add("active");
+
+            videoItems.forEach(item => {
+                const matchFormato =
+                    activeFilters.formato === "todos" ||
+                    item.dataset.formato === activeFilters.formato;
+
+                const matchCategoria =
+                    activeFilters.categoria === "todos" ||
+                    item.dataset.categoria === activeFilters.categoria;
+
+                item.style.display =
+                    matchFormato && matchCategoria ? "block" : "none";
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
