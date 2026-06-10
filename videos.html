@@ -239,37 +239,57 @@
 <script>
     const filterButtons = document.querySelectorAll(".filter-btn");
     const videoItems = document.querySelectorAll(".video-item");
-
-    const activeFilters = {
-        formato: "todos",
-        categoria: "todos"
-    };
+    const applyButton = document.getElementById("applyFilters");
 
     filterButtons.forEach(button => {
         button.addEventListener("click", () => {
             const type = button.dataset.filterType;
             const value = button.dataset.filterValue;
 
-            activeFilters[type] = value;
+            if (value === "todos") {
+                document
+                    .querySelectorAll(`[data-filter-type="${type}"]`)
+                    .forEach(btn => btn.classList.remove("active"));
+
+                button.classList.add("active");
+                return;
+            }
 
             document
-                .querySelectorAll(`[data-filter-type="${type}"]`)
-                .forEach(btn => btn.classList.remove("active"));
+                .querySelector(`[data-filter-type="${type}"][data-filter-value="todos"]`)
+                .classList.remove("active");
 
-            button.classList.add("active");
+            button.classList.toggle("active");
 
-            videoItems.forEach(item => {
-                const matchFormato =
-                    activeFilters.formato === "todos" ||
-                    item.dataset.formato === activeFilters.formato;
+            const hasActive = document.querySelectorAll(
+                `.filter-btn.active[data-filter-type="${type}"]:not([data-filter-value="todos"])`
+            ).length > 0;
 
-                const matchCategoria =
-                    activeFilters.categoria === "todos" ||
-                    item.dataset.categoria === activeFilters.categoria;
+            if (!hasActive) {
+                document
+                    .querySelector(`[data-filter-type="${type}"][data-filter-value="todos"]`)
+                    .classList.add("active");
+            }
+        });
+    });
 
-                item.style.display =
-                    matchFormato && matchCategoria ? "block" : "none";
-            });
+    applyButton.addEventListener("click", () => {
+        const selectedFormats = [...document.querySelectorAll('.filter-btn.active[data-filter-type="formato"]')]
+            .map(btn => btn.dataset.filterValue);
+
+        const selectedCategories = [...document.querySelectorAll('.filter-btn.active[data-filter-type="categoria"]')]
+            .map(btn => btn.dataset.filterValue);
+
+        videoItems.forEach(item => {
+            const matchFormato =
+                selectedFormats.includes("todos") ||
+                selectedFormats.includes(item.dataset.formato);
+
+            const matchCategoria =
+                selectedCategories.includes("todos") ||
+                selectedCategories.includes(item.dataset.categoria);
+
+            item.style.display = matchFormato && matchCategoria ? "block" : "none";
         });
     });
 </script>
