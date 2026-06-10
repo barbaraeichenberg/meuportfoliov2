@@ -167,3 +167,25 @@ canvas {
         width: 100%;
     }
 }
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    width: fit-content;
+    margin-bottom: 40px;
+    border: 1px solid #2b333d;
+    background: #111820;
+    color: #9ca3af;
+    padding: 7px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+.back-button:hover {
+    background: #171c22;
+    color: #f5f5f5;
+    border-color: #3b4451;
+}
