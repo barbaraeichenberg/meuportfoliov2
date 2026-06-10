@@ -237,61 +237,69 @@
 </main>
 
 <script>
-    const filterButtons = document.querySelectorAll(".filter-btn");
-    const videoItems = document.querySelectorAll(".video-item");
-    const applyButton = document.getElementById("applyFilters");
+const filterButtons = document.querySelectorAll(".filter-btn");
+const videoItems = document.querySelectorAll(".video-item");
+const applyButton = document.getElementById("applyFilters");
 
-    filterButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            const type = button.dataset.filterType;
-            const value = button.dataset.filterValue;
+filterButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        const type = button.dataset.filterType;
+        const value = button.dataset.filterValue;
 
-            if (value === "todos") {
-                document
-                    .querySelectorAll(`[data-filter-type="${type}"]`)
-                    .forEach(btn => btn.classList.remove("active"));
+        const sameTypeButtons = document.querySelectorAll(
+            `.filter-btn[data-filter-type="${type}"]`
+        );
 
-                button.classList.add("active");
-                return;
-            }
+        const todosButton = document.querySelector(
+            `.filter-btn[data-filter-type="${type}"][data-filter-value="todos"]`
+        );
 
-            document
-                .querySelector(`[data-filter-type="${type}"][data-filter-value="todos"]`)
-                .classList.remove("active");
+        // Se clicou em TODOS
+        if (value === "todos") {
+            sameTypeButtons.forEach(btn => btn.classList.remove("active"));
+            button.classList.add("active");
+            return;
+        }
 
-            button.classList.toggle("active");
+        // Remove TODOS ao clicar em outro
+        todosButton.classList.remove("active");
 
-            const hasActive = document.querySelectorAll(
-                `.filter-btn.active[data-filter-type="${type}"]:not([data-filter-value="todos"])`
-            ).length > 0;
+        // Toggle normal
+        button.classList.toggle("active");
 
-            if (!hasActive) {
-                document
-                    .querySelector(`[data-filter-type="${type}"][data-filter-value="todos"]`)
-                    .classList.add("active");
-            }
-        });
+        // Se nenhum ficou ativo → volta TODOS
+        const activeNonTodos = document.querySelectorAll(
+            `.filter-btn.active[data-filter-type="${type}"]:not([data-filter-value="todos"])`
+        );
+
+        if (activeNonTodos.length === 0) {
+            todosButton.classList.add("active");
+        }
     });
+});
 
-    applyButton.addEventListener("click", () => {
-        const selectedFormats = [...document.querySelectorAll('.filter-btn.active[data-filter-type="formato"]')]
-            .map(btn => btn.dataset.filterValue);
+applyButton.addEventListener("click", () => {
+    const selectedFormats = [
+        ...document.querySelectorAll('.filter-btn.active[data-filter-type="formato"]')
+    ].map(btn => btn.dataset.filterValue);
 
-        const selectedCategories = [...document.querySelectorAll('.filter-btn.active[data-filter-type="categoria"]')]
-            .map(btn => btn.dataset.filterValue);
+    const selectedCategories = [
+        ...document.querySelectorAll('.filter-btn.active[data-filter-type="categoria"]')
+    ].map(btn => btn.dataset.filterValue);
 
-        videoItems.forEach(item => {
-            const matchFormato =
-                selectedFormats.includes("todos") ||
-                selectedFormats.includes(item.dataset.formato);
+    videoItems.forEach(item => {
+        const matchFormato =
+            selectedFormats.includes("todos") ||
+            selectedFormats.includes(item.dataset.formato);
 
-            const matchCategoria =
-                selectedCategories.includes("todos") ||
-                selectedCategories.includes(item.dataset.categoria);
+        const matchCategoria =
+            selectedCategories.includes("todos") ||
+            selectedCategories.includes(item.dataset.categoria);
 
-            item.style.display = matchFormato && matchCategoria ? "block" : "none";
-        });
+        item.style.display =
+            matchFormato && matchCategoria ? "block" : "none";
     });
+});
 </script>
 
 </body>
