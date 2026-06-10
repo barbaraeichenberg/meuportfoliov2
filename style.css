@@ -110,11 +110,36 @@ canvas {
   background-image: linear-gradient(to bottom, rgba(255,255,255,.14) 1px, transparent 1px);
   background-size: 100% 7px;
 }
-.filter-btn {
-    border: 1px solid #2b333d;
+.filter-panel {
     background: #171c22;
+    border: 1px solid #2b333d;
+    border-radius: 18px;
+    padding: 26px 34px;
+    margin-bottom: 36px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.filter-group p {
+    color: #8f9aae;
+    font-size: 14px;
+    margin-bottom: 14px;
+}
+
+.filter-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.filter-btn,
+.apply-filter-btn {
+    border: 1px solid #2b333d;
+    background: #111820;
     color: #9ca3af;
-    padding: 10px 16px;
+    padding: 10px 18px;
     border-radius: 999px;
     font-size: 14px;
     font-weight: 600;
@@ -122,7 +147,23 @@ canvas {
 }
 
 .filter-btn:hover,
-.filter-btn.active {
+.filter-btn.active,
+.apply-filter-btn {
     background: #f5f5f5;
     color: #111418;
+}
+
+.apply-filter-btn {
+    min-width: 96px;
+}
+
+@media (max-width: 768px) {
+    .filter-panel {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .apply-filter-btn {
+        width: 100%;
+    }
 }
