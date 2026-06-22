@@ -184,3 +184,73 @@ if (languageButton && languageMenu) {
     }
   });
 }
+const translations = {
+  pt: {
+    navAbout: "Sobre Mim",
+    navWork: "Trabalho",
+    navContact: "Contato",
+    heroSubtitle: "Design Gráfico | Marketing Digital | Edição de Vídeo",
+    heroDrag: "Arraste para girar o cubo",
+    aboutTitle: "Sobre mim",
+    workTitle: "Trabalho",
+    videoEditing: "Edição de Vídeo",
+    videoProjects: "Projetos em vídeo",
+    videoDescription: "Projetos de edição de vídeos para Shorts, Reels, Tiktok e YouTube.",
+    watchVideos: "Conferir vídeos",
+    contactTitle: "Contato"
+  },
+  en: {
+    navAbout: "About Me",
+    navWork: "Work",
+    navContact: "Contact",
+    heroSubtitle: "Graphic Design | Digital Marketing | Video Editing",
+    heroDrag: "Drag to rotate the cube",
+    aboutTitle: "About me",
+    workTitle: "Work",
+    videoEditing: "Video Editing",
+    videoProjects: "Video projects",
+    videoDescription: "Video editing projects for Shorts, Reels, TikTok and YouTube.",
+    watchVideos: "Watch videos",
+    contactTitle: "Contact"
+  }
+};
+
+const languageButton = document.getElementById("languageButton");
+const languageMenu = document.getElementById("languageMenu");
+const currentLanguage = document.getElementById("currentLanguage");
+
+function setLanguage(lang) {
+  document.querySelectorAll("[data-i18n]").forEach((element) => {
+    const key = element.getAttribute("data-i18n");
+
+    if (translations[lang][key]) {
+      element.textContent = translations[lang][key];
+    }
+  });
+
+  currentLanguage.textContent = lang === "pt" ? "Português" : "English";
+  localStorage.setItem("siteLanguage", lang);
+}
+
+if (languageButton && languageMenu) {
+  languageButton.addEventListener("click", () => {
+    languageMenu.classList.toggle("open");
+  });
+
+  document.querySelectorAll("[data-lang]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const selectedLang = button.getAttribute("data-lang");
+      setLanguage(selectedLang);
+      languageMenu.classList.remove("open");
+    });
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!event.target.closest(".language-switcher")) {
+      languageMenu.classList.remove("open");
+    }
+  });
+
+  const savedLanguage = localStorage.getItem("siteLanguage") || "pt";
+  setLanguage(savedLanguage);
+}
