@@ -158,3 +158,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }, waitMore);
   });
 })();
+const languageButton = document.getElementById("languageButton");
+const languageMenu = document.getElementById("languageMenu");
+const currentLanguage = document.getElementById("currentLanguage");
+
+if (languageButton && languageMenu) {
+  languageButton.addEventListener("click", () => {
+    languageMenu.classList.toggle("open");
+  });
+
+  document.querySelectorAll("[data-lang]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const selectedLang = button.getAttribute("data-lang");
+
+      currentLanguage.textContent = selectedLang === "pt" ? "Português" : "English";
+      languageMenu.classList.remove("open");
+
+      // aqui depois entra a tradução real dos textos
+    });
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!event.target.closest(".language-switcher")) {
+      languageMenu.classList.remove("open");
+    }
+  });
+}
