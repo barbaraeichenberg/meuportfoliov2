@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edição de Vídeo | Bárbara Eichenberg</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-base text-light antialiased selection:bg-gray-700 selection:text-white">
+
+    <header class="fixed w-full top-0 z-50 bg-base/90 backdrop-blur-md border-b border-line transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="font-bold text-xl tracking-tight">Bárbara Eichenberg</a>
+            
+            <nav class="hidden md:flex gap-8 font-semibold text-sm tracking-wide">
+                <a href="index.html#sobre" class="hover:text-white text-gray-400 transition-colors">Sobre Mim</a>
+                <a href="index.html#trabalho" class="hover:text-white text-gray-400 transition-colors">Trabalho</a>
+                <a href="index.html#contato" class="hover:text-white text-gray-400 transition-colors">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="pt-32">
+        <section class="max-w-7xl mx-auto px-6 pb-24">
+<a href="index.html#videos" class="back-button">
+    ← voltar para o portfólio
+</a>
+
+            <div class="mb-14">
+                <h1 class="font-bold text-4xl lg:text-6xl leading-tight mb-4">Edição de Vídeo</h1>
+                <p class="text-gray-400 max-w-2xl">
+                    Projetos de edição de vídeos para Shorts, Reels, Tiktok e YouTube.
+                </p>
+            </div>
+            <section class="clientes-relevantes">
+
+  <div class="clientes-lista">
+    <a class="cliente-card" href="https://www.instagram.com/saske_vlr" target="_blank">
+<img src="images/saske.png" alt="@saske_vlr">
+      <span>@saske_vlr</span>
+    </a>
+
+    <a class="cliente-card" href="https://www.instagram.com/smokdela" target="_blank">
+      <img src="images/smokdela.png" alt="@smokdela">
+      <span>@smokdela</span>
+    </a>
+
+    <a class="cliente-card" href="https://www.instagram.com/bomba_4512" target="_blank">
+      <img src="images/bomba.png" alt="@bomba_4512">
+      <span>@bomba_4512</span>
+    </a>
+
+    <a class="cliente-card" href="https://www.instagram.com/levikingbr" target="_blank">
+      <img src="images/levi.png" alt="@levikingbr">
+      <span>@levikingbr</span>
+    </a>
+  </div>
+</section>
+            
+<div class="filter-panel">
+    <div class="filter-group">
+        <p>Formato</p>
+        <div class="filter-options">
+            <button class="filter-btn active" data-filter-type="formato" data-filter-value="todos">Todos</button>
+            <button class="filter-btn" data-filter-type="formato" data-filter-value="curto">Curtos</button>
+            <button class="filter-btn" data-filter-type="formato" data-filter-value="longo">Longos</button>
+        </div>
+    </div>
+
+    <div class="filter-group">
+        <p>Categoria</p>
+        <div class="filter-options">
+            <button class="filter-btn active" data-filter-type="categoria" data-filter-value="todos">Todos</button>
+            <button class="filter-btn" data-filter-type="categoria" data-filter-value="vlog">Vlogs</button>
+            <button class="filter-btn" data-filter-type="categoria" data-filter-value="games">Games</button>
+        </div>
+    </div>
+
+    <button id="applyFilters" class="apply-filter-btn">Aplicar</button>
+</div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    
+    <article class="video-item bg-card border border-line rounded-xl overflow-hidden" data-formato="curto" data-categoria="games">
+        <div class="aspect-video">
+            <iframe 
+                class="w-full h-full"
+                src="https://www.youtube.com/embed/Jpz1awQcswE"
+                title="Projeto de vídeo 01"
+                frameborder="0"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <div class="p-6">
+            <h2 class="font-semibold text-xl mb-2">Vamos "manito"!</h2>
+            <p class="text-sm text-gray-500">Live todos os dias na Twitch!</p>
+        </div>
+    </article>
+
+    <article class="video-item bg-card border border-line rounded-xl overflow-hidden" data-formato="curto" data-categoria="games">
+        <div class="aspect-video">
+            <iframe 
+                class="w-full h-full"
+                src="https://www.youtube.com/embed/1pRjMdg_FJs"
+                title="Projeto de vídeo 02"
+                frameborder="0"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <div class="p-6">
+            <h2 class="font-semibold text-xl mb-2">Pra quem quer jogar Valorant hoje:</h2>
+            <p class="text-sm text-gray-500">Live todos os dias no TikTok!</p>
+        </div>
+    </article>
+
+    <article class="video-item bg-card border border-line rounded-xl overflow-hidden" data-formato="curto" data-categoria="games">
+        <div class="aspect-video">
+            <iframe 
+                class="w-full h-full"
+                src="https://www.youtube.com/embed/1FCKM-wkpZo"
+                title="Projeto de vídeo 03"
+                frameborder="0"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <div class="p-6">
+            <h2 class="font-semibold text-xl mb-2">Cai com um sova fanho</h2>
+            <p class="text-sm text-gray-500">Live todos os dias no TikTok!</p>
+        </div>
+    </article>
+
+    <article class="video-item bg-card border border-line rounded-xl overflow-hidden" data-formato="curto" data-categoria="games">
+        <div class="aspect-video">
+            <iframe 
+                class="w-full h-full"
+                src="https://www.youtube.com/embed/yZ-P8ZdFROE"
+                title="Projeto de vídeo 04"
+                frameborder="0"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <div class="p-6">
+            <h2 class="font-semibold text-xl mb-2">Pov: virei o Lula</h2>
+            <p class="text-sm text-gray-500">Os melhores cortes da live!</p>
+        </div>
+    </article>
+              
+<article class="video-item bg-card border border-line rounded-xl overflow-hidden" data-formato="curto" data-categoria="games">
+        <div class="aspect-video">
+            <iframe 
+                class="w-full h-full"
+                src="https://www.youtube.com/embed/tgK7ar_OlX0"
+                title="Projeto de vídeo 05"
+                frameborder="0"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <div class="p-6">
+            <h2 class="font-semibold text-xl mb-2">Play conjunta de um homem só</h2>
+            <p class="text-sm text-gray-500">Os melhores cortes da live!</p>
+        </div>
+    </article>
+
+<article class="video-item bg-card border border-line rounded-xl overflow-hidden" data-formato="curto" data-categoria="games">
+        <div class="aspect-video">
+            <iframe 
+                class="w-full h-full"
+                src="https://www.youtube.com/embed/WNUit4k5VuM"
+                title="Projeto de vídeo 06"
+                frameborder="0"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <div class="p-6">
+            <h2 class="font-semibold text-xl mb-2">Vou "Saskezar"</h2>
+            <p class="text-sm text-gray-500">Os melhores cortes da live!</p>
+        </div>
+    </article>
+
+<article class="video-item bg-card border border-line rounded-xl overflow-hidden" data-formato="curto" data-categoria="games">
+        <div class="aspect-video">
+            <iframe 
+                class="w-full h-full"
+                src="https://www.youtube.com/embed/IvWcosYTNCw"
+                title="Projeto de vídeo 07"
+                frameborder="0"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <div class="p-6">
+            <h2 class="font-semibold text-xl mb-2">Unboxing GoatGear</h2>
+            <p class="text-sm text-gray-500">Unboxing dos meus recebidos da GoatGear</p>
+        </div>
+    </article>
+
+<article class="video-item bg-card border border-line rounded-xl overflow-hidden" data-formato="curto" data-categoria="games">
+        <div class="aspect-video">
+            <iframe 
+                class="w-full h-full"
+                src="https://www.youtube.com/embed/84YpmL4OMMA"
+                title="Projeto de vídeo 08"
+                frameborder="0"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <div class="p-6">
+            <h2 class="font-semibold text-xl mb-2">Otsuka me taxou ao vivo</h2>
+            <p class="text-sm text-gray-500">Os melhores cortes da live!</p>
+        </div>
+    </article>
+
+<article class="video-item bg-card border border-line rounded-xl overflow-hidden" data-formato="curto" data-categoria="games">
+        <div class="aspect-video">
+            <iframe 
+                class="w-full h-full"
+                src="https://www.youtube.com/embed/a3OysCrW_4c"
+                title="Projeto de vídeo 09"
+                frameborder="0"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <div class="p-6">
+            <h2 class="font-semibold text-xl mb-2">"Love me 2"</h2>
+            <p class="text-sm text-gray-500">Os melhores cortes da live!</p>
+        </div>
+    </article>
+
+<article class="video-item bg-card border border-line rounded-xl overflow-hidden" data-formato="curto" data-categoria="games">
+        <div class="aspect-video">
+            <iframe 
+                class="w-full h-full"
+                src="https://www.youtube.com/embed/LYRxI86J17g"
+                title="Projeto de vídeo 10"
+                frameborder="0"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <div class="p-6">
+            <h2 class="font-semibold text-xl mb-2">"Você caiu contra o Saske"</h2>
+            <p class="text-sm text-gray-500">Os melhores cortes da live!</p>
+        </div>
+    </article>
+
+              <article class="video-item bg-card border border-line rounded-xl overflow-hidden" data-formato="curto" data-categoria="games">
+        <div class="aspect-video">
+            <iframe 
+                class="w-full h-full"
+                src="https://www.youtube.com/embed/UhbGjmMzCtg"
+                title="Projeto de vídeo 04"
+                frameborder="0"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <div class="p-6">
+            <h2 class="font-semibold text-xl mb-2">Quando seu duo está dormindo</h2>
+            <p class="text-sm text-gray-500">Os melhores cortes da live!</p>
+        </div>
+    </article>
+
+              <article class="video-item bg-card border border-line rounded-xl overflow-hidden" data-formato="curto" data-categoria="games">
+        <div class="aspect-video">
+            <iframe 
+                class="w-full h-full"
+                src="https://www.youtube.com/embed/Dl_0Ol4EPoY"
+                title="Projeto de vídeo 11"
+                frameborder="0"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <div class="p-6">
+            <h2 class="font-semibold text-xl mb-2">Skye + Movi</h2>
+            <p class="text-sm text-gray-500">Os melhores cortes da live!</p>
+        </div>
+    </article>
+
+                            <article class="video-item bg-card border border-line rounded-xl overflow-hidden" data-formato="longo" data-categoria="vlog">
+        <div class="aspect-video">
+            <iframe 
+                class="w-full h-full"
+                src="https://www.youtube.com/embed/iV8tC1a1dPk"
+                title="Projeto de vídeo 12"
+                frameborder="0"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <div class="p-6">
+            <h2 class="font-semibold text-xl mb-2">CONHECENDO O MAIOR CAMPEONATO DE VALORANT PRESENCIAL DO PAÍS</h2>
+            <p class="text-sm text-gray-500">Farelos House</p>
+        </div>
+    </article>
+              
+</div>
+</section>
+</main>
+
+<script>
+const filterButtons = document.querySelectorAll(".filter-btn");
+const videoItems = document.querySelectorAll(".video-item");
+const applyButton = document.getElementById("applyFilters");
+
+filterButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        const type = button.dataset.filterType;
+        const value = button.dataset.filterValue;
+
+        const sameTypeButtons = document.querySelectorAll(
+            `.filter-btn[data-filter-type="${type}"]`
+        );
+
+        const todosButton = document.querySelector(
+            `.filter-btn[data-filter-type="${type}"][data-filter-value="todos"]`
+        );
+
+        // Se clicou em TODOS
+        if (value === "todos") {
+            sameTypeButtons.forEach(btn => btn.classList.remove("active"));
+            button.classList.add("active");
+            return;
+        }
+
+        // Remove TODOS ao clicar em outro
+        todosButton.classList.remove("active");
+
+        // Toggle normal
+        button.classList.toggle("active");
+
+        // Se nenhum ficou ativo → volta TODOS
+        const activeNonTodos = document.querySelectorAll(
+            `.filter-btn.active[data-filter-type="${type}"]:not([data-filter-value="todos"])`
+        );
+
+        if (activeNonTodos.length === 0) {
+            todosButton.classList.add("active");
+        }
+    });
+});
+
+applyButton.addEventListener("click", () => {
+    const selectedFormats = [
+        ...document.querySelectorAll('.filter-btn.active[data-filter-type="formato"]')
+    ].map(btn => btn.dataset.filterValue);
+
+    const selectedCategories = [
+        ...document.querySelectorAll('.filter-btn.active[data-filter-type="categoria"]')
+    ].map(btn => btn.dataset.filterValue);
+
+    videoItems.forEach(item => {
+        const matchFormato =
+            selectedFormats.includes("todos") ||
+            selectedFormats.includes(item.dataset.formato);
+
+        const matchCategoria =
+            selectedCategories.includes("todos") ||
+            selectedCategories.includes(item.dataset.categoria);
+
+        item.style.display =
+            matchFormato && matchCategoria ? "block" : "none";
+    });
+});
+</script>
+
+</body>
+</html>
